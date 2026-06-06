@@ -72,7 +72,7 @@ MovieRouter.get("/movie/:id/trailer", async (req, res) => {
   }
 });
 
-router.get("/movie/:id/similar", async (req, res) => {
+MovieRouter.get("/movie/:id/similar", async (req, res) => {
   try {
     const { id } = req.params;
 
