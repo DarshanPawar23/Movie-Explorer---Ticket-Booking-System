@@ -1,11 +1,16 @@
 import Registration from "../Pages/Registration";
-import { BrowserRouter, Route, Router } from "react-router";
-
+import Login from "../Pages/Login";
+import { BrowserRouter, Route ,Routes} from "react-router";
+import Dashboard from "../Pages/Dashboard";
 function Navigation(){
+   return(
 <BrowserRouter>
- <Router>
+ <Routes>
     <Route path="/" element ={<Registration/>} />
- </Router>
+    <Route path="/login" element ={<Login/>} />
+    <Route path="/dashboard" element={<Dashboard/>} />
+ </Routes>
 </BrowserRouter>
+   );
 }
 export default Navigation;

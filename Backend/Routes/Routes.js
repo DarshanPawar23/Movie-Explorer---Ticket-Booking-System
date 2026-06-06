@@ -4,7 +4,7 @@ import verifyToken from "../Middleware/authMiddleware.js";
 
 const Routes = express.Router();
 
-Routes.post("/register",verifyToken,register);
-Routes.post("/login",verifyToken,login);
+Routes.post("/register",register);
+Routes.post("/login",login);
 
 export default Routes;
