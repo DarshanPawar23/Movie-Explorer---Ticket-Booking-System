@@ -1,7 +1,9 @@
 import express from "express";
 import tmdb from "../Services/tmdbService.js";
-
+import verifyToken from "../Middleware/authMiddleware.js";
+import axios from "axios";
 const MovieRouter = express.Router();
+
 
 MovieRouter.get("/trending", async (req, res) => {
   try {
@@ -9,6 +11,9 @@ MovieRouter.get("/trending", async (req, res) => {
     res.json(response.data);
   }
   catch (error) {
+       console.log("FULL ERROR:");
+   console.log(error.response?.data);
+   console.log(error.message);
     return res.status(500).json({
       message: "Failed to fetch movies"
     });
@@ -28,7 +33,7 @@ MovieRouter.get("/search", async (req, res) => {
   }
 });
 
-MovieRouter.get("/movie/:id", async (req, res) => {
+MovieRouter.get("/movie/:id",async (req, res) => {
   try {
     const { id } = req.params;
     const response = await tmdb.get(`/movie/${id}`);
